@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageServiceAPI", "ImageServiceAPI\ImageServiceAPI.csproj", "{8786E2D4-8E39-4FE0-B7B7-2207644D8121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageServiceAPI.Test", "ImageServiceAPI.Test\ImageServiceAPI.Test.csproj", "{5352CEEC-93EA-4160-AB83-B6C473CB9928}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8786E2D4-8E39-4FE0-B7B7-2207644D8121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8786E2D4-8E39-4FE0-B7B7-2207644D8121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8786E2D4-8E39-4FE0-B7B7-2207644D8121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8786E2D4-8E39-4FE0-B7B7-2207644D8121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5352CEEC-93EA-4160-AB83-B6C473CB9928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5352CEEC-93EA-4160-AB83-B6C473CB9928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5352CEEC-93EA-4160-AB83-B6C473CB9928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5352CEEC-93EA-4160-AB83-B6C473CB9928}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
