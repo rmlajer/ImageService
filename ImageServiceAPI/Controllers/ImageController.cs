@@ -52,7 +52,7 @@ public class ImagesController : ControllerBase
 
         int imageId;
         Console.WriteLine("Post Image");
-        Console.WriteLine("Byte Array: " + imageString);
+        Console.WriteLine("Image string: " + imageString);
         byte[] imageBytes = Encoding.ASCII.GetBytes(imageString);
 
 
