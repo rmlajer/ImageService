@@ -6,7 +6,7 @@ using Npgsql;
 using Dapper;
 using Microsoft.AspNetCore.Cors;
 
-namespace GetImageService.Controllers;
+namespace ImageService.Controllers;
 
 
 
@@ -46,18 +46,19 @@ public class ImagesController : ControllerBase
     
     [EnableCors]
     [HttpPost()]
-    public int PostImage(byte[] imageBytea)
+    public int PostImage(string imageString)
     {
 
 
         Console.WriteLine("Post Image");
-        Console.WriteLine("Byte Array: " + imageBytea);
-
+        Console.WriteLine("Byte Array: " + imageString);
+        byte[] imageBytes = Encoding.ASCII.GetBytes(imageString);
 
         var sql = $"INSERT INTO public.Images" +
             $"(imageBytea)" +
-            $"VALUES ('{imageBytea}') RETURNING id";
+            $"VALUES ('{imageBytes}') RETURNING id";
 
+        
 
         Console.WriteLine("sql: " + sql);
 
