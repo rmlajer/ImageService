@@ -57,7 +57,7 @@ public class ImagesController : ControllerBase
 
         var sql = $"INSERT INTO public.Images" +
             $"(imageBytea)" +
-            $"VALUES ('{imageBytes}') RETURNING id";
+            $"VALUES ({imageBytes}) RETURNING id";
 
         
 
