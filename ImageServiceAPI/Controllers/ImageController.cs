@@ -25,7 +25,7 @@ public class ImagesController : ControllerBase
         _logger = logger;
     }
 
-   
+
 
     [EnableCors]
     [HttpGet("{id:int}")]
@@ -37,29 +37,31 @@ public class ImagesController : ControllerBase
 
         using (var connection = new NpgsqlConnection(dbConnection.connectionString))
         {
-            
+
             returnImageDTO = connection.Query<ImageDTO>(SQL).First();
 
         }
         return returnImageDTO;
 
     }
-    
+
     [EnableCors]
     [HttpPost()]
     public int PostImage(string imageString)
     {
 
-
+        int imageId;
         Console.WriteLine("Post Image");
         Console.WriteLine("Byte Array: " + imageString);
         byte[] imageBytes = Encoding.ASCII.GetBytes(imageString);
 
+
+        /*
         var sql = $"INSERT INTO public.Images" +
             $"(imageBytea)" +
             $"VALUES ({imageBytes}) RETURNING id";
 
-        
+
 
         Console.WriteLine("sql: " + sql);
 
@@ -68,7 +70,7 @@ public class ImagesController : ControllerBase
             try
             {
                 return connection.Execute(sql);
-               
+
             }
             catch (Exception e)
             {
@@ -76,7 +78,25 @@ public class ImagesController : ControllerBase
                 throw new InvalidDataException();
 
             }
+        }*/
+
+        using (var conn = new NpgsqlConnection(dbConnection.connectionString))
+        {
+            string sQL = "INSERT INTO public.images (imageBytea) VALUES (@Image) RETURNING id";
+            using (var command = new NpgsqlCommand(sQL, conn))
+            {
+                NpgsqlParameter param = command.CreateParameter();
+                param.ParameterName = "@Image";
+                param.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Bytea;
+                param.Value = imageBytes;
+                command.Parameters.Add(param);
+
+                conn.Open();
+                imageId = (int)command.ExecuteScalar();
+            }
         }
+
+        return imageId;
     }
 }
 
