@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Npgsql;
 using Dapper;
 using Microsoft.AspNetCore.Cors;
+using System.Text;
 
 namespace ImageService.Controllers;
 
